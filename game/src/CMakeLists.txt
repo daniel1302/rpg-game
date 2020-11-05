@@ -14,5 +14,5 @@ main.cpp
 find_package(SDL2 REQUIRED)
 include_directories(${SDL2_INCLUDE_DIRS})
 
-add_executable(RPGGame Main.cpp)
+add_executable(RPGGame ${APP_SOURCES} ${APP_HEADERS})
 target_link_libraries(RPGGame ${SDL2_LIBRARIES})
