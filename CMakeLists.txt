@@ -1,16 +1,12 @@
 cmake_minimum_required(VERSION 3.7)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
 project(RPGGame)
 
-find_package(SDL2 REQUIRED)
-include_directories(${SDL2_INCLUDE_DIRS})
+set(VERSION_MAJOR "0")
+set(VERSION_MINOR "0")
+set(VERSION_PATCH "0")
+set(VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH})
 
-add_executable(GPRGame Main.cpp)
-target_link_libraries(RPGGame ${SDL2_LIBRARIES})
 
-set_target_properties(RPGGame
-    PROPERTIES
-    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
-    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
-    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
-)
+add_subdirectory(game)
