@@ -1,12 +1,28 @@
 cmake_minimum_required(VERSION 3.7)
 project(RPGGame)
 
+option(EMSCRIPTEN "Compile game to emscripten" OFF)
+
+
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
 set(VERSION_MAJOR "0")
 set(VERSION_MINOR "0")
 set(VERSION_PATCH "0")
 set(VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH})
-
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/public")
 
 add_subdirectory(game)
+
+
+
+if(EMSCRIPTEN)
+    set(CMAKE_C_LINK_FLAGS "")
+    set(CMAKE_CXX_LINK_FLAGS "")
+
+    set(CMAKE_C_COMPILER "emcc")
+    set(CMAKE_CXX_COMPILER "emcc")
+
+else()
+
+endif()
