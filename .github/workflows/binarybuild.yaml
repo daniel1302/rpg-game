@@ -19,6 +19,6 @@ jobs:
     - name: Compile linux binary
       run: |
         docker run \
-          -v bin/:/app/bin/ \
+          -v "$(pwd)/bin/":/app/bin/ \
           gcc-compiler:latest \
           cmake .
