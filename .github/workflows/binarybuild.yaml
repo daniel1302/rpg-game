@@ -21,7 +21,7 @@ jobs:
         docker run \
           -v "$(pwd)/bin/":/app/bin/ \
           gcc-compiler:latest \
-          cmake .
+          cmake . && make
     - name: Upload artifact
       uses: actions/upload-artifact@v2
       with:
