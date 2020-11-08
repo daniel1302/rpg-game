@@ -1,4 +1,5 @@
 #include "SDL.h"
+#include <cstdio>
 
 
 int main() 
@@ -6,7 +7,7 @@ int main()
   
     // retutns zero on success else non-zero 
     if (SDL_Init(SDL_INIT_EVERYTHING) != 0) { 
-        printf("error initializing SDL: %s\n", SDL_GetError()); 
+        std::printf("error initializing SDL: %s\n", SDL_GetError()); 
     } 
     SDL_Window* window = SDL_CreateWindow("GAME", 
                                        SDL_WINDOWPOS_CENTERED, 
