@@ -10,13 +10,13 @@ RUN apt-get update -y \
         libsdl2-dev \
         git
 
-RUN git clone https://github.com/emscripten-core/emsdk.git
+# RUN git clone https://github.com/emscripten-core/emsdk.git
 
-WORKDIR /app/emsdk
+# WORKDIR /app/emsdk
 
-RUN ./emsdk install latest
+# RUN ./emsdk install latest
 
-RUN ./emsdk activate latest
+# RUN ./emsdk activate latest
 
 
 WORKDIR /app
@@ -24,4 +24,4 @@ WORKDIR /app
 COPY . /app/
 
 # RUN source ./emsdk/emsdk_env.sh 
-RUN cmake .
+# RUN cmake .
