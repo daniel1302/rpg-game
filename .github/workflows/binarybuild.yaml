@@ -22,3 +22,8 @@ jobs:
           -v "$(pwd)/bin/":/app/bin/ \
           gcc-compiler:latest \
           cmake .
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: binaries
+        path: bin/
