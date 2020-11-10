@@ -8,15 +8,5 @@ RUN apt-get update -y \
         libsdl2-dev \
         git
 
-# RUN cd / \
-#     && git clone https://github.com/emscripten-core/emsdk.git \
-#     && cd /emsdk \
-#     && ./emsdk install latest \
-#     && ./emsdk activate latest
 
-
-WORKDIR /app
-
-# COPY . /app/
-
-RUN [ "sleep", "3600" ]
+COPY . /src

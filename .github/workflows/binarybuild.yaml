@@ -14,16 +14,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag gcc-compiler:latest
-    - name: Compile linux binary
-      run: |
-        docker run \
-          -v "$(pwd)/bin/":/app/bin/ \
-          gcc-compiler:latest \
-          bash -c "cmake . && ls -als && make"
+    - name: Create builder
+      run: docker build --tag=builder:latest .
+
+    - name: Build Web package
+      run: docker run -v "$(pwd)/build/bin:/src/build/bin builder:latest .
+        
     - name: Upload artifact
       uses: actions/upload-artifact@v2
       with:
         name: binaries
-        path: bin/
+        path: build/bin/
