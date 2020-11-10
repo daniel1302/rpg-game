@@ -1,6 +1,4 @@
-FROM gcc:10
-
-WORKDIR /app
+FROM emscripten/emsdk:latest
 
 RUN apt-get update -y \
     && apt-get install -y \
@@ -10,18 +8,15 @@ RUN apt-get update -y \
         libsdl2-dev \
         git
 
-# RUN git clone https://github.com/emscripten-core/emsdk.git
-
-# WORKDIR /app/emsdk
-
-# RUN ./emsdk install latest
-
-# RUN ./emsdk activate latest
+# RUN cd / \
+#     && git clone https://github.com/emscripten-core/emsdk.git \
+#     && cd /emsdk \
+#     && ./emsdk install latest \
+#     && ./emsdk activate latest
 
 
 WORKDIR /app
 
-COPY . /app/
+# COPY . /app/
 
-# RUN source ./emsdk/emsdk_env.sh 
-# RUN cmake .
+RUN [ "sleep", "3600" ]
