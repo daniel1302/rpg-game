@@ -18,7 +18,7 @@ jobs:
       run: docker build --tag=builder:latest .
 
     - name: Build Web package
-      run: docker run -v "$(pwd)"/build/bin:/src/build/bin builder:latest /src/script/build-web.sh
+      run: docker run -v "$(pwd)"/build/bin:/src/build/bin builder:latest /src/scripts/build-web.sh
         
     - name: Upload artifact
       uses: actions/upload-artifact@v2
