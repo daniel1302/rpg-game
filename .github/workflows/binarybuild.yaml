@@ -25,3 +25,14 @@ jobs:
       with:
         name: binaries
         path: build/bin/
+
+    - name: Copy folder content recursively to remote
+      uses: garygrossgarten/github-action-scp@release
+      with:
+        local: /build/bin/*
+        remote: ${{ secrets.SERVER_PATH }}
+        host: ${{ secrets. SERVER_URL }}
+        privateKey: ${{ secrets.SERVER_PRIVATE_SSH_KEY }}
+        username: ${{ secrets.SERVER_USER }}
+
+        
