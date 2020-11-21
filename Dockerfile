@@ -6,7 +6,8 @@ RUN apt-get update -y \
         cmake   \
         python3 \
         libsdl2-dev \
-        git
+        git \ 
+    && sdl2-config --cflags
 
 
 COPY . /src
