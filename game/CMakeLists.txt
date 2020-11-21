@@ -30,6 +30,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE include)
 # target_link_libraries(${PROJECT_NAME} SDL2::Main)
 # target_link_libraries(${PROJECT_NAME} SDL2::TTF)
 
+    target_link_libraries(${PROJECT_NAME} "-s USE_SDL=2")
 if (EMSCRIPTEN)
     set(CMAKE_C_LINK_FLAGS "")
     set(CMAKE_CXX_LINK_FLAGS "")
