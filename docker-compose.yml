@@ -1,0 +1,7 @@
+game:
+  build: ./docker
+  image: rpg-game:latest
+  ports:
+    - "80:80"
+  environment: 
+   - NGINX_PORT=80
