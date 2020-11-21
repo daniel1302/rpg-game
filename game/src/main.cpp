@@ -13,14 +13,15 @@ EM_BOOL one_iter(double time, void* userData) {
 }
 
 int main() {
+
 #ifdef __EMSCRIPTEN__
-  // Receives a function to call and some user data to provide it.
-  emscripten_request_animation_frame_loop(one_iter, 0);
+    emscripten_set_main_loop(one_iter, 60, 1);
 #else
-  while (1) {
-    one_iter();
-    // Delay to keep frame rate constant (using SDL).
-    SDL_Delay(time_to_next_frame());
-  }
+    while (runMainLoop())
+    {
+        one_iter();
+        // Delay to keep frame rate constant (using SDL).
+        SDL_Delay(time_to_next_frame());
+    }
 #endif
 }

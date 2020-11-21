@@ -41,6 +41,7 @@ if (EMSCRIPTEN)
     target_link_libraries(${PROJECT_NAME} "-s USE_SDL_IMAGE=2")
     target_link_libraries(${PROJECT_NAME} "-s SDL2_IMAGE_FORMATS='[\"png\"]'")
     target_link_libraries(${PROJECT_NAME} "-s USE_SDL_TTF=2")
+    target_link_libraries(${PROJECT_NAME} "-s USE_WEBGL2=1")
 
     
     if (WASM)
