@@ -19,15 +19,17 @@ set(APP_SOURCES
 )
 
 
-# find_package(SDL2 REQUIRED)
+find_package(SDL2 REQUIRED)
 # find_package(SDL2_ttf REQUIRED)
-include_directories(${SDL2_INCLUDE_DIR})
+include_directories(${SDL2_INCLUDE_DIRS})
 
-add_executable(${PROJECT_NAME}  ${APP_SOURCES} ${APP_HEADERS})
+
+message(STATUS "${SDL2_INCLUDE_DIRS}")
+add_executable(${PROJECT_NAME} ${APP_SOURCES} ${APP_HEADERS})
 
 target_include_directories(${PROJECT_NAME} PRIVATE include)
 
-# target_link_libraries(${PROJECT_NAME} SDL2::Main)
+target_link_libraries(${PROJECT_NAME} SDL2::Main)
 # target_link_libraries(${PROJECT_NAME} SDL2::TTF)
 
     target_link_libraries(${PROJECT_NAME} "-s USE_SDL=2")
@@ -38,6 +40,7 @@ if (EMSCRIPTEN)
     set(CMAKE_CXX_COMPILER emcc)
     set(CMAKE_EXECUTABLE_SUFFIX ".html")
 
+    target_link_libraries(${PROJECT_NAME} "-l SDL2")
     target_link_libraries(${PROJECT_NAME} "-s USE_SDL=2")
     target_link_libraries(${PROJECT_NAME} "-s USE_SDL_IMAGE=2")
    # target_link_libraries(${PROJECT_NAME} "-s SDL2_IMAGE_FORMATS='[\"png\"]'")
