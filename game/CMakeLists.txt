@@ -29,7 +29,7 @@ add_executable(${PROJECT_NAME} ${APP_SOURCES} ${APP_HEADERS})
 
 target_include_directories(${PROJECT_NAME} PRIVATE include)
 
-target_link_libraries(${PROJECT_NAME} SDL2::Main)
+# target_link_libraries(${PROJECT_NAME} SDL2::Main)
 # target_link_libraries(${PROJECT_NAME} SDL2::TTF)
 
     target_link_libraries(${PROJECT_NAME} "-s USE_SDL=2")
