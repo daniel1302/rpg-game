@@ -19,16 +19,16 @@ set(APP_SOURCES
 )
 
 
-find_package(SDL2 REQUIRED)
-find_package(SDL2_ttf REQUIRED)
-include_directories(${SDL2_INCLUDE_DIRS})
+# find_package(SDL2 REQUIRED)
+# find_package(SDL2_ttf REQUIRED)
+include_directories(${SDL2_INCLUDE_DIR})
 
 add_executable(${PROJECT_NAME}  ${APP_SOURCES} ${APP_HEADERS})
 
 target_include_directories(${PROJECT_NAME} PRIVATE include)
 
-target_link_libraries(${PROJECT_NAME} SDL2::Main)
-target_link_libraries(${PROJECT_NAME} SDL2::TTF)
+# target_link_libraries(${PROJECT_NAME} SDL2::Main)
+# target_link_libraries(${PROJECT_NAME} SDL2::TTF)
 
 if (EMSCRIPTEN)
     set(CMAKE_C_LINK_FLAGS "")
